@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+
+{% block title %}About - Calorie Calculator{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-10">
+        <div class="card shadow">
+            <div class="card-header bg-info text-white">
+                <h2 class="mb-0"><i class="fas fa-book"></i> Understanding the Calorie Calculator: A Statistical Perspective</h2>
+            </div>
+            <div class="card-body">
+                <h3>1. Introduction</h3>
+                <p>
+                    Calorie calculators are widely used tools in nutrition, fitness, and healthcare to estimate daily energy requirements. 
+                    These tools help individuals manage their weight, plan diets, and optimize energy intake. The accuracy and reliability 
+                    of a calorie calculator depend on the mathematical and statistical models underpinning its design.
+                </p>
+
+                <h3>2. Purpose of a Calorie Calculator</h3>
+                <p>
+                    The primary purpose of a calorie calculator is to estimate the number of calories an individual needs to consume 
+                    daily to maintain, lose, or gain weight. This estimation is based on several factors:
+                </p>
+                <ul>
+                    <li><strong>Basal Metabolic Rate (BMR):</strong> The energy expended at rest.</li>
+                    <li><strong>Total Daily Energy Expenditure (TDEE):</strong> BMR adjusted by physical activity.</li>
+                    <li><strong>Goals:</strong> Weight maintenance, gain, or loss.</li>
+                </ul>
+
+                <h3>3. Components of the Calorie Calculation</h3>
+                
+                <h4>3.1 Basal Metabolic Rate (BMR)</h4>
+                <p>
+                    BMR represents the number of calories required to maintain vital body functions (like breathing and heartbeat) at rest. 
+                    It is the foundation for calorie estimation and is calculated using regression-based formulas.
+                </p>
+
+                <h4>3.2 Physical Activity Level</h4>
+                <p>
+                    Calorie calculators apply an activity multiplier to the BMR to estimate TDEE. These multipliers are categorized 
+                    based on general physical activity and are derived from empirical studies.
+                </p>
+
+                <h3>4. Statistical Model Used: Multiple Linear Regression</h3>
+                <p>
+                    Most calorie calculators are built on multiple linear regression models developed from metabolic research. 
+                    This statistical model estimates the relationship between one dependent variable (calories) and multiple 
+                    independent variables (age, weight, height, sex, and activity level).
+                </p>
+
+                <h4>4.1 Mifflin-St Jeor Equation (Regression Model)</h4>
+                <p>This equation is based on linear regression analysis of data from healthy adults:</p>
+                <div class="alert alert-light">
+                    <code>BMR = 10 × weight (kg) + 6.25 × height (cm) - 5 × age (years) + s</code><br>
+                    Where:<br>
+                    • s = +5 for males<br>
+                    • s = -161 for females
+                </div>
+                <p>
+                    This equation was derived using regression modeling of calorimetry data, making it a predictive statistical model.
+                </p>
+
+                <h4>4.2 Total Daily Energy Expenditure (TDEE)</h4>
+                <div class="alert alert-light">
+                    <code>TDEE = BMR × Activity Factor</code>
+                </div>
+                <p>
+                    Activity factors are categorical variables based on physical activity levels, applied as multipliers 
+                    (e.g., 1.2 for sedentary, 1.55 for moderate activity).
+                </p>
+
+                <h3>5. Data Sources and Model Development</h3>
+                <p>
+                    These models were created from large-scale studies measuring actual energy expenditure using techniques 
+                    like indirect calorimetry. Researchers performed regression analyses to identify the most predictive 
+                    variables and derive coefficients for use in formulae.
+                </p>
+
+                <h3>6. Limitations of the Model</h3>
+                <div class="alert alert-warning">
+                    <ul class="mb-0">
+                        <li><strong>Based on averages:</strong> May not account for individual metabolic variation.</li>
+                        <li>Activity factor estimates can be imprecise.</li>
+                        <li>Does not include genetic, hormonal, or environmental factors.</li>
+                    </ul>
+                </div>
+
+                <h3>7. Conclusion</h3>
+                <p>
+                    Calorie calculators are practical tools built on robust statistical models, primarily multiple linear regression. 
+                    By using demographic and physiological inputs, these calculators provide estimates of caloric needs, guiding 
+                    individuals in nutrition planning. While not perfectly accurate, they serve as a scientifically grounded starting 
+                    point for personal health management.
+                </p>
+
+                <h3>8. References</h3>
+                <ul>
+                    <li>
+                        Mifflin, M. D., St Jeor, S. T., Hill, L. A., Scott, B. J., Daugherty, S. A., & Koh, Y. O. (1990). 
+                        A new predictive equation for resting energy expenditure in healthy individuals. 
+                        <em>The American Journal of Clinical Nutrition</em>, 51(2), 241-247.
+                    </li>
+                    <li>
+                        Frankenfield, D., Roth-Yousey, L., & Compher, C. (2005). 
+                        Comparison of predictive equations for resting metabolic rate in healthy nonobese and obese adults: 
+                        a systematic review. <em>Journal of the American Dietetic Association</em>, 105(5), 775-789.
+                    </li>
+                </ul>
+
+                <div class="text-center mt-4">
+                    <a href="{% url 'home' %}" class="btn btn-primary">
+                        <i class="fas fa-calculator"></i> Try the Calculator
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
